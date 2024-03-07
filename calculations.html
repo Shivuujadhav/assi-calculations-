@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculations</title>
+</head>
+<body>
+    <h3> calculations</h3>
+    <!-- Your HTML content here -->
+    <body>
+        <input type="number" name="first" id="first"/>
+        <select id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value=""></option>
+            <option></option>
+        </select>
+        <input type="number" name="second" id="second"/>
+        <br>
+        <br>
+        <button onclick="cal()">calculate</button>
+        <input type="text" name="third" id="res"/>
+        <!--sum of array-->
+        <form id="sumForm">
+            <label for="num1">Number 1:</label>
+            <input type="number" id="num1" name="num1" required>
+            <br>
+            <label for="num2">Number 2:</label>
+            <input type="number" id="num2" name="num2" required>
+            <br>
+            <label for="num3">Number 3:</label>
+            <input type="number" id="num3" name="num3" required>
+            <br>
+            <label for="num4">Number 4:</label>
+            <input type="number" id="num4" name="num4" required>
+            <br>
+            <label for="num5">Number 5:</label>
+            <input type="number" id="num5" name="num5">
+            <br>
+            <button type="submit">Calculate Sum</button>
+          </form>
+          <p id="sumResult"></p>
+          <!--parsed value-->
+          <h1>Parsed Value</h1>
+  <form id="valueForm">
+    <label for="value">Value:</label>
+    <input type="number" id="value" name="value" step="any" required>
+    <br>
+    <button type="submit">Parse Value</button>
+  </form>
+  <p id="parsedResult"></p>
+       <!--tax calculator-->
+       <h2>Tax Calculator</h2>
+       <div class="row">
+        <div class="col1">
+          <label for="amount">Amount:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="amount" min="0" id="amount" oninput="calculateTax(this.value)" required><br>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col1">
+          <label for="tax-percentage">Tax %:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="tax-percentage" min="0" id="tax-percentage" oninput="calculateTax(document.getElementById('amount').value)" required><br>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col1">
+          <label for="tax-amount">Tax Amount:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="tax-amount" min="0" id="tax-amount" disabled><br>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col1">
+          <label for="total-amount">Total Amount:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="total-amount" min="0" id="total-amount" disabled><br>
+        </div>
+      </div>  
+      <!--intrest calculator-->
+      <h2>Intrest Calculator</h2>
+      <div class="row">
+        <div class="col1">
+          <label for="principle">Principle:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="principle" min="0" id="principle" required><br>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col1">
+          <label for="period">Period:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="period" min="0" id="period" oninput="calculateInterest()" required><br>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col1">
+          <label for="rate">Rate of Interest:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="rate" min="0" id="rate" step="0.01" oninput="calculateInterest()" required><br>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col1">
+          <label for="roi">RoI on:</label>
+        </div>
+        <div class="col2">
+          <select name="roi" id="roi" onchange="calculateInterest()">
+            <option value="day">Day</option>
+            <option value="month">Month</option>
+            <option value="year" selected>Year</option>
+          </select>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col1">
+          <label for="interest">Interest:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="interest" min="0" id="interest" disabled><br>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col1">
+          <label for="total-amount">Total Amount:</label>
+        </div>
+        <div class="col2">
+          <input type="number" name="total-amount" min="0" id="total-amount" disabled><br>
+        </div>
+      </div> 
+    
+    <!--vertical sum of ARRAY-->
+    <h2>Vertical Sum of Array</h2>
+    <h4>Enter Product Information</h4>
+<label for="productName">Product Name:</label>
+<input type="text" id="productName"><br><br>
+
+<label for="productPrice">Price:</label>
+<input type="number" id="productPrice"><br><br>
+
+<label for="productQty">Quantity:</label>
+<input type="number" id="productQty"><br><br>
+
+<button onclick="addProduct()">Add Product</button>
+
+<h2>Vertical Sum of Product Name, Price, and Quantity</h2>
+<button onclick="calculateVerticalSum()">Calculate Vertical Sum</button>
+<div id="result"></div><br>
+    <!--generate random number-->
+    <div>
+        
+        <h2>Random Number Generator</h2>
+        <label for="digits">Number of Digits:</label>
+        <input type="number" id="digits" value="3" min="1">
+        <button onclick="displayRandomNumber()">Generate Random Number</button>
+        <p id="result1"></p>
+    </div>
+     <!--compound intrest calculation-->
+     <h2>Compound Interest Calculation</h2>
+     <label for="principal">Principal:</label>
+<input type="number" id="principal" placeholder="Enter principal amount"><br><br>
+
+<label for="period">Period (Years):</label>
+<input type="number" id="period" placeholder="Enter period in years"><br><br>
+
+<label for="rate">Rate of Interest (%):</label>
+<input type="number" id="rate" placeholder="Enter rate of interest"><br><br>
+
+<label for="times">Number of Times Interest is Calculated:</label>
+<input type="number" id="times" placeholder="Enter number of times"><br><br>
+
+<button onclick="calculateCompoundInterest()">Calculate Compound Interest</button>
+
+<div id="result2"></div>
+    <script  src="calculations.js"></script>
+    <script type="module" src="module.js"></script>
+</body>
+</html>

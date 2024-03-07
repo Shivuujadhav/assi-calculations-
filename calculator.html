@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  .calculator {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  .screen {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+  }
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  button {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #c0c0c0;
+  }
+  button.operator {
+    background-color: #fbc02d;
+    color: #fff;
+  }
+  button.operator:hover {
+    background-color: #ffa000;
+  }
+  button.clear {
+    background-color: #f44336;
+    color: #fff;
+  }
+  button.clear:hover {
+    background-color: #d32f2f;
+  }
+</style>
+</head>
+<body>
+<div class="calculator">
+  <div class="screen" id="screen">0</div>
+  <div class="buttons">
+    <button class="clear" onclick="clearScreen()">C</button>
+    <button onclick="appendCharacter('7')">7</button>
+    <button onclick="appendCharacter('8')">8</button>
+    <button onclick="appendCharacter('9')">9</button>
+    <button onclick="appendCharacter('4')">4</button>
+    <button onclick="appendCharacter('5')">5</button>
+    <button onclick="appendCharacter('6')">6</button>
+    <button onclick="appendCharacter('1')">1</button>
+    <button onclick="appendCharacter('2')">2</button>
+    <button onclick="appendCharacter('3')">3</button>
+    <button class="operator" onclick="appendCharacter('+')">+</button>
+    <button class="operator" onclick="appendCharacter('-')">-</button>
+    <button class="operator" onclick="appendCharacter('*')">×</button>
+    <button class="operator" onclick="appendCharacter('/')">÷</button>
+    <button onclick="appendCharacter('0')">0</button>
+    <button onclick="appendCharacter('.')">.</button>
+    <button class="operator" onclick="calculate()">=</button>
+  </div>
+</div>
+
+<script>
+let currentExpression = '';
+
+function clearScreen() {
+  currentExpression = '';
+  updateScreen();
+}
+
+function appendCharacter(character) {
+  currentExpression += character;
+  updateScreen();
+}
+
+function calculate() {
+  try {
+    const result = eval(currentExpression);
+    currentExpression = result.toString();
+    updateScreen();
+  } catch(error) {
+    alert('Invalid expression');
+  }
+}
+
+function updateScreen() {
+  document.getElementById('screen').innerText = currentExpression || '0';
+}
+</script>
+</body>
+</html>
